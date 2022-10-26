@@ -2,6 +2,7 @@
 #include <lodepng.h>
 #include <vector>
 #include <cstdint>
+#include <string>
 using namespace std;
 
 void decodeFromPng(std::vector<unsigned char>& image, const char* filename, unsigned height, unsigned width) {
@@ -69,13 +70,14 @@ void drawPath(const vector<int>& path, vector<unsigned char>& image, int rows, i
 }
 
 void findOptimalPath(int** arr, vector<int>& path, int x_i, int x_f, int rows, int cols) {
-
+    //--------------------------------------------------------------------------------
     // Напишите ваш код здесь
 
 
 
 
     //path.push_back();
+    //--------------------------------------------------------------------------------
 }
 
 int main(int argc, char* argv[]) {
@@ -84,8 +86,8 @@ int main(int argc, char* argv[]) {
         cerr << "Wrong input arguments" << endl;
         return -1;
     }
-    int rows = int(argv[2]), cols = int(argv[3]); // определение строк и столбцов как у матрицы в математике
-    int x_i = int(argv[4]), x_f = int(argv[5]);
+    int rows = stoi(argv[2]), cols = stoi(argv[3]); // определение строк и столбцов как у матрицы в математике
+    int x_i = stoi(argv[4]), x_f = stoi(argv[5]);
     char *input_file = argv[1], *output_file = argv[6];
     // читаем png изображение
     std::vector<unsigned char> image; // vector to store value of pixels with all 4 channels RGBA
@@ -105,8 +107,10 @@ int main(int argc, char* argv[]) {
     printArray(arr, rows, cols);  
     
     //функцию ниже вам нужно реализовать
+    //-----------------------------------------------------------------------------
     vector<int> path;  // вектор к которому нужно делать push_back для добавления точек пути 
     findOptimalPath(arr, path, x_i, x_f, rows, cols);
+   //------------------------------------------------------------------------------
 
 
     // далее можно отрисовать path используя фукцию ниже
