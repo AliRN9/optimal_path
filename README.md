@@ -3,6 +3,6 @@
 
 rows, cols are the size of the img.png in pixels
 
-xa, xb are coordinates of the starting and final point
+xa, xb are coordinates of the starting and the final point
 
-img_out.png is the image with path visualized in red
+img_out.png is the image with a path visualized in red
