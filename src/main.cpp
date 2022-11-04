@@ -216,5 +216,5 @@ int main(int argc, char* argv[]) {
     for (int row = 0; row < rows; ++row)
         delete[] arr[row];
     delete[] arr;
-    getchar();
+    return 0;
 }
