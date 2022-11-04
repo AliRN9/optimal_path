@@ -77,12 +77,6 @@ void findOptimalPath(int** arr, vector<int>& path, int x_i, int x_f, int  rows, 
     for (int i = 0; i < rows; ++i)
         Arr_V[i] = new Vertice[cols];
 
-    int** arr_way = new int* [rows];
-    for (int row = 0; row < rows; ++row)
-    {
-
-        arr_way[row] = new int[cols];
-    }
     for (int i = 0; i < rows; ++i)
     {
         for (int j = 0; j < cols; ++j)
@@ -167,8 +161,6 @@ void findOptimalPath(int** arr, vector<int>& path, int x_i, int x_f, int  rows, 
             break;
         }
     }
-    path_X.push_back(i);
-    path_Y.push_back(j);
     path.push_back(j);
     std::reverse(path.begin(), path.end());
 
