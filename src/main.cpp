@@ -33,9 +33,8 @@ void getBlueChannel(const std::vector<unsigned char>& image, int** arr, int rows
     }
 }
 void printArray(int** arr, int rows, int cols) {
-    /*
-     * Функция для вывода массива в консоль
-     */
+  
+     // Функция для вывода массива в консоль
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j)
             cout << arr[i][j] << " ";
@@ -155,7 +154,7 @@ void findOptimalPath(int** arr, vector<int>& path, int x_i, int x_f, int  rows, 
     while (!(i == 0 and j == x_i))
     {
         path_X.push_back(i);
-        path_Y.push_back(j);
+        path.push_back(j);
         switch (Arr_V[i][j].early) {
         case up:
             i -= 1;
@@ -169,11 +168,15 @@ void findOptimalPath(int** arr, vector<int>& path, int x_i, int x_f, int  rows, 
         }
     }
     path_X.push_back(i);
-    path_Y.push_back(j)
+    path_Y.push_back(j);
     path.push_back(j);
     std::reverse(path.begin(), path.end());
 
-    //path.push_back();
+   
+    for (int i = 0; i < rows; ++i)
+        delete[] Arr_V[i];
+        delete Arr_V;
+  
     //--------------------------------------------------------------------------------C:\Users\Ali\source\repos\Find_optimal_path_problem\src\main.cpp
 }
 
@@ -209,9 +212,13 @@ int main(int argc, char* argv[]) {
     findOptimalPath(arr, path, x_i, x_f, rows, cols);
     //------------------------------------------------------------------------------
 
-
+    for (int i = 0; i < path.size(); i++)
+    {
+        cout <<"sdaas" << path[i];
+    }
      // далее можно отрисовать path используя фукцию ниже
-    //drawPath(path, image, rows, cols, output_file);
+    drawPath(path, image, rows, cols, output_file);
+
 
     // очищаем память
     for (int row = 0; row < rows; ++row)
